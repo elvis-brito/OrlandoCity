@@ -4,12 +4,11 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/d880a3c0fd.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
-    <script src="lib/jquery/jquery-3.5.1.min.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-
+    
     <header>
        
         <div class="header-black">
@@ -42,13 +41,20 @@
             </div>
         </div>
         <div class="container">
-            <div class="row">
-                <nav id="menu" class="float-right">
+            <div class="row float-right">
+                <nav id="menu">
                     <ul>
-                        <li>Tickets</li>
-                        <li>News</li>
-                        <li>Schedule</li>
-                        <li><input type="search" placeholder="search..."></li>
+                        <li><a href="#">Tickets</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Schedule</a></li>
+                        <li class="search">
+                            <div class="input-group">
+                            <input type="search" placeholder="search...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><i class="fas fa-search"></i></button>
+                            </span>
+                        </div>
+                    </li>
                     </ul>
                 </nav>
             </div>
@@ -58,5 +64,13 @@
           </div>
       
     </header>
+    <section>
+        <div id="banner">
+            <h1>Orlando City<small>Orlando City Soccer Club</small></h1>
+            
+        </div>
+    </section>
+    <script src="lib/jquery/jquery-3.5.1.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

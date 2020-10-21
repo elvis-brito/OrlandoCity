@@ -22,10 +22,6 @@ header {
     background-color: #5e299ae3;
 }
 
-header .container{
-  
-}
-
 header .header-black{
     background-color: #000;
     height: 40px;
@@ -190,4 +186,36 @@ v
     color: #fff;
     font-family: "OpenSans";
     font-weight: bold;
+}
+
+#news h2 {
+    color: #5E2799;
+    font-family: "OpenSans-Light";
+    font-size: 48px;
+    text-transform: uppercase;
+}
+
+#news hr {
+    border: #fde192 solid 2px;
+    width: 200px;
+    margin: 0 auto;
+}
+
+#news .thumbnails {
+    margin-top: 20px;
+}
+
+#news .thumbnails h3 {
+    color: #5e299a;
+    font-size: 18px;
+    font-family: "OpenSans";
+    font-weight: bold;
+    padding-top: 20px;
+    margin-bottom: 0px;
+}
+
+#news .thumbnails time {
+    color: #a7a7a7;
+    font-size: 18px;
+    font-family: "OpenSans";
 }

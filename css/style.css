@@ -115,6 +115,7 @@ v
 #logotipo{
     position: absolute;
     top: 15px;
+    z-index: 4;
 }
 
 #menu {
@@ -138,8 +139,11 @@ v
 #menu li.search button  {
     background: none;
     border: none;
+    outline: none;
     position: absolute;
-    right: 3px;
+    right: 0px;
+    top: -2px;
+    display: block;
 }
 
 #menu li.search button i {
@@ -149,7 +153,13 @@ v
 
 #menu li.search {
     width: 182px;
+    transition: 1s;
 }
+
+#menu li.search.ativo {
+    width: 300px;
+}
+
 #menu li.search ::-webkit-input-placeholder{
     color: rgba(255, 255, 255, 0.699);
     padding-left: 20px;
@@ -160,6 +170,16 @@ v
     border: none;
     height: 30px;
     line-height: 30px;
+    outline: none;
+}
+
+#menu li.search.ativo input {
+    background-color: #5C2D90;
+    color: #fff;
+    border: none;
+    height: 30px;
+    line-height: 30px;
+    width: 300px;
 }
 
 #banner {

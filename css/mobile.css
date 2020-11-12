@@ -1,0 +1,52 @@
+@media only screen and (max-width: 768px) {
+    .header-black ul, #menu {
+        display: none;
+    }
+
+    #logotipo {
+        right: calc(65% - 146px);
+    }
+    #btn-bars, #btn-search {
+        display: block;
+        font-size: 22px;
+        position: absolute;
+        top: 4px;
+        color: #fff;
+        background: none;
+        border: none;
+        outline: 0;
+    }
+
+    #btn-bars {
+        left: 6px;
+    }
+    #btn-search {
+        right: 6px;
+    }
+}
+
+@media only screen and (max-width:480px) {
+    .header-black ul, #menu{
+        display: none;
+    }
+    #logotipo {
+        left: 32%;
+    }
+    #btn-bars, #btn-search {
+        display: block;
+        font-size: 22px;
+        position: absolute;
+        top: 4px;
+        color: #fff;
+        background: none;
+        border: none;
+        outline: 0;
+    }
+
+    #btn-bars {
+        left: 6px;
+    }
+    #btn-search {
+        right: 6px;
+    }
+}

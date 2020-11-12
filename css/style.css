@@ -118,6 +118,10 @@ v
     z-index: 4;
 }
 
+#btn-bars, #btn-search {
+    display: none; 
+}
+
 #menu {
     display: inline-block;
     margin: 20px 0;

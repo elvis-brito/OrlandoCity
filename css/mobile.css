@@ -23,6 +23,22 @@
     #btn-search {
         right: 6px;
     }
+    #banner {
+        height: 317px;
+        background-size: cover;
+        background-position: 0;
+        text-align: center;
+    }
+
+    #banner h1{
+        top: 140px;
+        font-size: 48px;
+        margin-left: 0;
+    }
+    
+    #banner h1 small{
+        font-size: 22px;
+    }
 }
 
 @media only screen and (max-width:480px) {
@@ -48,5 +64,12 @@
     }
     #btn-search {
         right: 6px;
+    }
+
+    #banner {
+        height: 317px;
+        background-size: cover;
+        background-position: 0;
+        text-align: center;
     }
 }

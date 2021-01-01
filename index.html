@@ -85,6 +85,8 @@
                     <hr>
                 </div>
             </div>
+            <button id="btn-news-prev" type="button"><i class="fas fa-angle-left"></i></button>
+            <button id="btn-news-next" type="button"><i class="fas fa-angle-right"></i></button>
             <div class="row thumbnails justify-content-md-center owl-carousel owl-theme">
                 <div class="item">
                     <div class="item-inner">
@@ -247,7 +249,7 @@
                 <p class="float-right text-roxo">Create by Elvis Brito in HCODE</p>
             </div>
         </div>
-        <script src="lib/jquery/jquery-3.5.1.min.js"></script>
+        <script src="lib/owl-carousel/jquery.min.js"></script>
         <script src="lib/owl-carousel/owl.carousel.min.js"></script>
         <script src="lib/bootstrap/js/bootstrap.min.js"></script>
         <script>
@@ -259,7 +261,7 @@
                 });
 
                 $(".thumbnails").owlCarousel({
-                    loop: false,
+                    loop: true,
                     margin: 10,
                     responsive: {
                         0: {
@@ -276,6 +278,18 @@
                         }
                     }
                 });
+
+                var owl = $('.thumbnails');
+                owl.owlCarousel();
+
+                $('#btn-news-prev').click(function () {
+                    owl.trigger('next.owl.carousel');
+                })
+
+                $('#btn-news-next').click(function () {
+                    owl.trigger('next.owl.carousel');
+                });
+
             });
         </script>
 </body>

@@ -253,6 +253,9 @@ v
     width: 100%;
 }
 
+#btn-news-prev,  #btn-news-next {
+    display: none;
+}
 
 #estatisticas {
     margin-top: 80px;

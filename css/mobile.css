@@ -103,5 +103,24 @@
         display: block;
         text-align: center;
     }
+    #btn-news-prev,  #btn-news-next {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 48px;
+        position: absolute;
+        color: #5e299a;
+        z-index: 22;
+        outline: 0;
+    }
 
+    #btn-news-next {
+        right: 0;
+        top: 500px;
+        margin-right: 12px;
+    }
+    #btn-news-prev{
+        top: 502px;
+        margin-left: -2px;
+    }
 }

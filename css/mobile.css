@@ -1,4 +1,13 @@
 @media only screen and (max-width: 768px) {
+    #logotipo {
+        z-index: 24;
+    }
+    .header-black {
+        position: fixed;
+        width: 100%;
+        z-index: 23;
+    }
+
     .header-black ul, #menu {
         display: none;
     }
@@ -186,14 +195,14 @@
     }
 
     footer .list-socials a{
-        width: 60px;
-        height: 60px;
-        line-height: 60px;
-        border-radius: 60px;
+        width: 45px;
+        height: 45px;
+        border-radius: 45px;
     }
 
     footer .list-socials i {
-        font-size: 25px;
+        font-size: 20px;
+        line-height: 11px;
         margin: 16px auto;
     }
 

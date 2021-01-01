@@ -237,16 +237,19 @@
 
                                 <div class="row justify-content-around">
                                     <div class="col-xs-6">
-                                        <a href="#" class="btn btn-footer d-block d-sm-none"><i class="fa fa-map-marker"></i>Location</a>
+                                        <a href="#" class="btn btn-footer d-block d-sm-none"><i
+                                                class="fa fa-map-marker"></i>Location</a>
                                     </div>
                                     <div class="col-xs-6">
-                                        <a href="#" class="btn btn-footer d-block d-sm-none"><i class="fa fa-phone"></i>Call</a>
+                                        <a href="#" class="btn btn-footer d-block d-sm-none"><i
+                                                class="fa fa-phone"></i>Call</a>
                                     </div>
                                 </div>
                                 <ul class="list-socials">
                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                     <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="#" id="page-up"><i class="fa fa-angle-up"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -299,6 +302,13 @@
 
                 $('#btn-news-next').click(function () {
                     owl.trigger('next.owl.carousel');
+                });
+
+                $("#page-up").on("click", function (event) {
+                    $("html, body").animate({
+                        scrollTop: 0 
+                    }, 1000);
+                    event.preventDefault();
                 });
 
             });

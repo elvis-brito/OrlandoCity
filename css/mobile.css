@@ -131,4 +131,28 @@
         margin-bottom: 40px;
     }
 
+    #call-to-action {
+        margin-top: 69px;
+    }
+
+    #call-to-action hr {
+        border: solid #fde192 3px;
+    }
+    #call-to-action h2 {
+        font-size: 35px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #call-to-action p {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    #call-to-action .btn-roxo {
+        float: left;
+    }
+    #call-to-action .btn-amarelo {
+        float: right;
+        margin-left: 10px;
+    }
+
 }

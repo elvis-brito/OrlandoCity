@@ -1,6 +1,6 @@
 @media only screen and (max-width: 768px) {
     #logotipo {
-        z-index: 24;
+        z-index: 34;
     }
     .header-black {
         position: fixed;
@@ -56,6 +56,7 @@
     }
     #logotipo {
         left: 32%;
+        transition: 1s;
     }
     #btn-bars, #btn-search {
         display: block;
@@ -212,5 +213,77 @@
         height: 44px;
         line-height: 30px;
     }
+
+    header #menu-mobile {
+        position: fixed;
+        top: 40px;
+        background-color: #fff;
+        width: 80%;
+        height: 100%;
+        left: -80%;
+        transition: all ease 1s;
+        z-index: 30;
+    }
+
+    header.open-menu #menu-mobile {
+        left: 0;
+    }
+
+    header.open-menu #menu-mobile-mask {
+        position: fixed;
+        background-color: rgb(0, 0, 0, .7);
+        width: 100%;
+        height: 100%;
+        z-index: 25;
+        top: 40px;
+    }
+
+    header.open-menu #logotipo {
+        position: fixed;
+        top: 50px;
+        height: 100px;
+        left: calc(40% - 43.83px);
+    }
+
+    header.open-menu #menu-mobile ul {
+       margin: 20px;
+       margin-top: 140px;
+    }
+
+    header.open-menu #menu-mobile li {
+        text-align: center;
+        border-top: #ccc solid 1px;
+        list-style-type: none;
+    }
+    header.open-menu #menu-mobile li:last-child {
+        border-bottom: #ccc solid 1px;
+    }
+
+    header.open-menu #menu-mobile a {
+        color: #633392;
+        font-family: 'OpenSans';
+        font-size: 16px;
+        font-weight: bold;
+        padding: 18px;
+        display: block;        
+    }
+
+    header.open-menu .bar-close {
+        position: absolute;
+        bottom: 40px;
+        background-color: #633392;
+        height: 43px;
+        width: 100%;
+    }
+
+    header.open-menu .bar-close .btn-close {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 22px;
+        margin-top: 0px;
+    }
+
+    
 
 }

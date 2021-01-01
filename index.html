@@ -17,6 +17,23 @@
 
     <header>
 
+        <div id="menu-mobile-mask" class="d-block d-sm-none">
+
+        </div>
+
+        <div id="menu-mobile" class="d-block d-sm-none">
+            <ul>
+                <li><a href="#">Tickets</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Schedule</a></li>
+            </ul>
+
+            <div class="bar-close">
+                <button class="btn btn-close" type="button"><i class="fas fa-times"></i></button>
+            </div>
+
+        </div>
+
         <div class="header-black">
             <button id="btn-bars" type="button"><i class="fas fa-bars"></i></button>
             <button id="btn-search" type="button"><i class="fas fa-search"></i></button>
@@ -310,6 +327,15 @@
                     }, 1000);
                     event.preventDefault();
                 });
+
+                $("#btn-bars").on("click", function(){
+                    $("header").toggleClass("open-menu")
+                });
+
+                $("#menu-mobile-mask, .btn-close").on("click", function(){
+                    $("header").removeClass("open-menu")
+                });
+
 
             });
         </script>

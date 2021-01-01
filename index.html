@@ -35,9 +35,12 @@
         </div>
 
         <div class="header-black">
-            <button id="btn-bars" type="button"><i class="fas fa-bars"></i></button>
-            <button id="btn-search" type="button"><i class="fas fa-search"></i></button>
+
             <div class="container">
+                <button id="btn-bars" type="button"><i class="fas fa-bars"></i></button>
+                <button id="btn-search" type="button"><i class="fas fa-search"></i></button>
+                <input id="input-search-mobile" type="search" class="d-block d-sm-none" placeholder="seach...">
+
                 <ul class="float-right">
                     <li class="club-01"><a href="#"></a></li>
                     <li class="club-02"><a href="#"></a></li>
@@ -332,8 +335,11 @@
                     $("header").toggleClass("open-menu")
                 });
 
-                $("#menu-mobile-mask, .btn-close").on("click", function(){
+                $("#menu-mobile-mask, .bar-close").on("click", function(){
                     $("header").removeClass("open-menu")
+                });
+                $("#btn-search").on("click", function(){
+                    $("header").toggleClass("open-search")
                 });
 
 

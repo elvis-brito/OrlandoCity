@@ -284,6 +284,25 @@
         margin-top: 0px;
     }
 
-    
+    header #input-search-mobile {
+        top: -40px;
+        position: fixed;
+        width: 70%;
+        left: 15%;
+        background-color: #000;
+        height: 40px;
+        border: none;
+        outline: 0;
+        color: #fff;
+        transition: 1s;
+    }
+
+    header.open-search #input-search-mobile {
+        top: 0;
+    }
+
+    header.open-search #logotipo {
+        z-index: 10;
+    }
 
 }

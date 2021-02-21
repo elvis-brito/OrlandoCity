@@ -111,7 +111,7 @@
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-xs-6">
-                        <a href="#" class="btn btn-roxo">Shop</a>
+                        <a href="shop" class="btn btn-roxo">Shop</a>
                     </div>
                     <div class="col-xs-6">
                         <a href="#" class="btn btn-amarelo">Register</a>

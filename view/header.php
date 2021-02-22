@@ -90,7 +90,9 @@
             </div>
         </div>
         <div class="container">
+            <a href="/">
             <img id="logotipo" src="img/logo.png" alt="Logotipo">
+            </a>
         </div>
 
     </header>

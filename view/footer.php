@@ -70,6 +70,7 @@
 <script src="lib/owl-carousel/owl.carousel.min.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="lib/js/animate.js"></script>
+<script src="lib/raty/lib/jquery.raty.js"></script>
 </body>
 
 </html>

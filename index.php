@@ -100,4 +100,24 @@ $app->get('/produto-:id_prod', function ($id_prod) {
     require_once("view/shop-produto.php");
 });
 
+$app->get("/cart", function(){
+    require_once("view/cart.php");
+});
+
+$app->post('/carrinho', function(){
+
+    $request_body = json_decode(file_get_contents('php://input'), true);
+
+    var_dump($request_body);
+
+});
+
+$app->post('/carrinho', function(){
+
+    $request_body = json_decode(file_get_contents('php://input'), true);
+
+    var_dump($request_body);
+
+});
+
 $app->run();

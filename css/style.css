@@ -649,3 +649,57 @@ margin-top: 30px;
     width: 200px;
     margin: 0 auto;
 }
+
+.table td {
+    vertical-align: middle;
+}
+
+#cart-products .content-table td a, td input, td img {
+    max-width: 80px;
+	max-height: 80px;
+}
+
+#cart-products .form-control {
+	text-align: center;
+	border: none;
+	background: none;
+	box-shadow: none;
+	outline: 0;
+}
+
+.box-outline-grey {
+	border: #CCC 1px solid;
+	height: 160px;
+	text-align: center;
+}
+#calculo-de-frete .btn {
+	background-color: #ccc;
+	height: 42px;
+	border-radius: 0;
+}
+#calculo-de-frete .form-control {
+	height: 42px;
+	border-radius: 0;
+}
+.box-cart-totais {
+	background-color: #eee;
+	height: 160px;
+	padding: 10px;
+}
+
+.text-bold {
+	font-weight: bold;
+}
+.btn-roxo {
+	background-color: #5E299A;
+	height: 42px;
+	width: 164px;
+	font-weight: bold;
+	color: #fff!important;
+	border-radius: 0;
+}
+
+.input-group {
+    width: 40%;
+    margin: 0 auto;
+}

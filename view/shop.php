@@ -24,8 +24,8 @@
                 </div>
             </div>
         </div>
-        <button id="btn-destaque-prev" type="button"><i class="fas fa-angle-left"></i></button>
-        <button id="btn-destaque-next" type="button"><i class="fas fa-angle-right"></i></button>
+        <button id="btn-destaque-prev" type="button"><i class="fas fa-chevron-left"></i></button>
+        <button id="btn-destaque-next" type="button"><i class="fas fa-chevron-right"></i></button>
     </div>
 
     <div id="promocoes" class="container">

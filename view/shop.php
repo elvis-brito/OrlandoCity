@@ -1,21 +1,23 @@
 <?php include_once("header.php"); ?>
-<section>
-    <div class="container" id="destaque-produtos-container" ng-controller="destaque-controller">
+<section ng-controller="destaque-controller">
+    <div class="container" id="destaque-produtos-container">
         <div id="destaque-produtos" class="owl-carousel owl-theme">
 
             <div class="row" ng-repeat="produto in produtos">
                 <div class="col-sm-6 col-imagem">
+                    <a href="produto-{{produto.id_prod}}">
                     <img src="img/produtos/{{produto.foto_principal}}" alt="{{produto.nome_prod_longo}}">
+                    </a>
                 </div>
                 <div class="col-sm-6 col-descricao">
-                    <h2>{{produto.nome_prod_longo}}</h2>
+                    <a href="produto-{{produto.id_prod}}"><h2>{{produto.nome_prod_longo}}</h2></a>
                     <div class="box-valor">
                         <div class="text-noboleto text-arial-cinza">no boleto</div>
                         <div class="text-por text-arial-cinza">por</div>
                         <div class="text-reais text-roxo">R$</div>
                         <div class="text-valor text-roxo">{{produto.preco}}</div>
                         <div class="text-valor-centavos text-roxo">,{{produto.centavos}}</div>
-                        <div class="text-parcelas text-arial-cinza">ou em até {{produto.parcelas}}x de R${{produto.parcela}}</div>
+                        <div class="text-parcelas text-arial-cinza">ou em até {{produto.parcelas}}x de R$ {{produto.parcela}}</div>
                         <div class="text-total text-arial-cinza">total à prazo R$ {{produto.total}}</div>
                     </div>
                     <a href="#" class="btn btn-comprar text-roxo"><i class="fa fa-shopping-cart"></i>comprar agora</a>
@@ -79,52 +81,16 @@
                 <hr>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-3">
+        <div class="row mt-5">
+            <div class="col-md-3" ng-repeat="produto in buscados">
                 <div class="box-produto-info">
-                    <a href="#">
-                        <img src="img/produtos/panelas.png" alt="Panelas" class="produto-img" />
-                        <h3>Conjunto de Panelas Tramontina Versalhes Alumínio Antiaderente</h3>
-                        <div class="estrelas" data-score="5"></div>
-                        <div class="text-qtd-reviews text-arial-cinza">(300)</div>
-                        <div class="text-valor text-roxo">R$ 109,90</div>
-                        <div class="text-parcelado text-arial-cinza">10x de R$10,99 sem juros</div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="box-produto-info">
-                    <a href="#">
-                        <img src="img/produtos/panelas.png" alt="Panelas" class="produto-img" />
-                        <h3>Conjunto de Panelas Tramontina Versalhes Alumínio Antiaderente</h3>
-                        <div class="estrelas" data-score="5"></div>
-                        <div class="text-qtd-reviews text-arial-cinza">(300)</div>
-                        <div class="text-valor text-roxo">R$ 109,90</div>
-                        <div class="text-parcelado text-arial-cinza">10x de R$10,99 sem juros</div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="box-produto-info">
-                    <a href="#">
-                        <img src="img/produtos/panelas.png" alt="Panelas" class="produto-img" />
-                        <h3>Conjunto de Panelas Tramontina Versalhes Alumínio Antiaderente</h3>
-                        <div class="estrelas" data-score="3"></div>
-                        <div class="text-qtd-reviews text-arial-cinza">(300)</div>
-                        <div class="text-valor text-roxo">R$ 109,90</div>
-                        <div class="text-parcelado text-arial-cinza">10x de R$10,99 sem juros</div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="box-produto-info">
-                    <a href="#">
-                        <img src="img/produtos/panelas.png" alt="Panelas" class="produto-img" />
-                        <h3>Conjunto de Panelas Tramontina Versalhes Alumínio Antiaderente</h3>
-                        <div class="estrelas" data-score="2.5"></div>
-                        <div class="text-qtd-reviews text-arial-cinza">(300)</div>
-                        <div class="text-valor text-roxo">R$ 109,90</div>
-                        <div class="text-parcelado text-arial-cinza">10x de R$10,99 sem juros</div>
+                    <a href="produto-{{produto.id_prod}}">
+                        <img src="img/produtos/{{produto.foto_principal}}" alt="{{produto.nome_prod_longo}}" class="produto-img" />
+                        <h3>{{produto.nome_prod_longo}}</h3>
+                        <div class="estrelas" data-score="{{produto.media}}"></div>
+                        <div class="text-qtd-reviews text-arial-cinza">({{produto.total_reviews}})</div>
+                        <div class="text-valor text-roxo">R$ {{produto.preco}},{{produto.centavos}}</div>
+                        <div class="text-parcelado text-arial-cinza">{{produto.parcelas}}x de R$ {{produto.parcela}} sem juros</div>
                     </a>
                 </div>
             </div>
@@ -134,55 +100,59 @@
 <?php include_once("footer.php"); ?>
 
 <script>
-    angular.module("shop", []).controller("destaque-controller", function($scope, $http){
+    angular.module("shop", []).controller("destaque-controller", function($scope, $http) {
         $scope.produtos = [];
 
-        $scope.produtos.push({
-            nome_prod_longo:"Smartphone Motorola Moto X Play Dual Chip Desbloqueado Android 5.1",
-            foto_principal:"moto-x.png",
-            preco:"1259",
-            centavos:"10",
-            parcelas:8,
-            parcela:"174,88",
-            total:"1399,00"
+        var initialCarousel = function() {
+            $("#destaque-produtos").owlCarousel({
+                autoplay: 5000,
+                items: 1,
+                singleItem: true
+            });
+
+            var owl = $("#destaque-produtos");
+
+            owl.owlCarousel();
+
+            $('#btn-destaque-prev').on("click", function() {
+
+                owl.trigger('prev.owl.carousel');
+            });
+
+            $('#btn-destaque-next').on("click", function() {
+                owl.trigger('next.owl.carousel');
+            });
+        };
+
+        $http({
+            method: 'GET',
+            url: 'produtos'
+        }).then(function sucessCallback(response) {
+            $scope.produtos = response.data;
+            setTimeout(initialCarousel, 1000);
+        }, function errorCallback(response) {
+
+        });
+
+        var initialEstrelas = function(){
+            $(".estrelas").each(function() {
+            $(this).raty({
+                starHalf: 'lib/raty/lib/images/star-half.png',
+                starOff: 'lib/raty/lib/images/star-off.png',
+                starOn: 'lib/raty/lib/images/star-on.png',
+                score: parseFloat($(this).data("score"))
+            });
         })
-        $scope.produtos.push({
-            nome_prod_longo:"Iphone",
-            foto_principal:"moto-x.png",
-            preco:"1259",
-            centavos:"10",
-            parcelas:8,
-            parcela:"174,88",
-            total:"1399,00"
-        })
+        };
+
+        $http({
+            method: 'GET',
+            url: 'produtos-mais-buscados'
+        }).then(function sucessCallback(response) {
+            $scope.buscados = response.data;
+            setTimeout(initialEstrelas, 1000);
+        }, function errorCallback(response) {
+
+        });
     });
-    $(function(){
-    $("#destaque-produtos").owlCarousel({
-        autoplay: 5000,
-        items: 1,
-        singleItem: true
-    });
-
-    var owl = $("#destaque-produtos");
-
-    owl.owlCarousel();
-
-    $('#btn-destaque-prev').on("click", function() {
-
-        owl.trigger('prev.owl.carousel');
-    });
-
-    $('#btn-destaque-next').on("click", function() {
-        owl.trigger('next.owl.carousel');
-    });
-
-    $(".estrelas").each(function(){
-        $(this).raty({
-        starHalf : 'lib/raty/lib/images/star-half.png',
-        starOff : 'lib/raty/lib/images/star-off.png',
-        starOn : 'lib/raty/lib/images/star-on.png',
-        score : parseFloat($(this).data("score"))
-    });
-    })
-});
 </script>

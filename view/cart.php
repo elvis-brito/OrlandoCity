@@ -23,11 +23,11 @@
                     <td class="col-xs-2 text-center">
                         <div class="input-group">
                             <span>
-                                <button class="btn text-roxo" ng-click="addQtd(produto)" type="button"><i class="fas fa-chevron-down"></i></button>
+                                <button class="btn text-roxo" ng-click="removeQtd(produto)" type="button"><i class="fas fa-chevron-down"></i></button>
                             </span>
                             <input type="text" class="form-control" ng-model="produto.qtd_car">
                             <span>
-                                <button class="btn text-roxo" ng-click="removeQtd(produto)" type="button"><i class="fas fa-chevron-up"></i></button>
+                                <button class="btn text-roxo" ng-click="addQtd(produto)" type="button"><i class="fas fa-chevron-up"></i></button>
                             </span>
                         </div>
                     </td>
@@ -103,7 +103,6 @@
                 };
 
                 $scope.produtos = response.data.produtos;
-                console.log(response.data)
 
             }, function(response) {
 
@@ -123,7 +122,7 @@
                 })
             }).then(function(response) {
 
-                console.log(response);
+                carregarCarrinho();
 
             }, function() {
 
@@ -135,7 +134,21 @@
 
         $scope.removeQtd = function(_produto) {
 
+            $http({
+                method: 'DELETE',
+                url: 'carrinho-produto',
+                data: JSON.stringify({
+                    id_prod: _produto.id_prod
+                })
+            }).then(function(response) {
 
+                carregarCarrinho();
+
+            }, function() {
+
+
+
+            });
 
         };
 
@@ -155,7 +168,7 @@
             });
 
         };
-
+        
         carregarCarrinho();
 
     });

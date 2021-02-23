@@ -90,7 +90,7 @@
             </div>
         </div>
         <div class="container">
-            <a href="/">
+            <a href="/OrlandoCity">
             <img id="logotipo" src="img/logo.png" alt="Logotipo">
             </a>
         </div>

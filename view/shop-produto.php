@@ -18,7 +18,7 @@
                         <div class="text-parcelas text-arial-cinza">ou em até <?=$produto['parcelas']?>x de R$ <?=$produto['parcela']?></div>
                         <div class="text-total text-arial-cinza">total à prazo R$ <?=$produto['total']?></div>
                     </div>
-                    <a href="#" class="btn btn-comprar text-roxo"><i class="fa fa-shopping-cart"></i>comprar agora</a>
+                    <a href="carrinhoAdd-<?=$produto['id_prod']?>" class="btn btn-comprar text-roxo"><i class="fa fa-shopping-cart"></i>comprar agora</a>
                 </div>
             </div>
         </div>

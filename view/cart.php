@@ -1,5 +1,5 @@
 <?php include_once("header.php"); ?>
-<section>
+<section ng-controller="cart-controller">
     <div class="container">
         <div class="container text-center title-default-roxo m-5">
             <h2>carrinho de compras</h2>
@@ -17,25 +17,28 @@
                 </tr>
             </thead>
             <tbody class="content-table">
-                <tr>
-                    <td class="text-center"><img src="img/produtos/iphone.jpg"></td>
-                    <td class="text-center">Nome do Produto</td>
+                <tr ng-repeat="produto in produtos">
+                    <td class="text-center"><img src="img/produtos/{{produto.foto_principal}}"></td>
+                    <td class="text-center">{{produto.nome_prod_longo}}</td>
                     <td class="col-xs-2 text-center">
-                        <span>
-                            <button href="#" class="btn text-roxo" type="button"><i class="fas fa-chevron-down"></i></button>
-                        </span>
-
-                        <span>
-                            <button href="#" class="btn text-roxo" type="button"><i class="fas fa-chevron-up"></i></button>
-                        </span>
+                        <div class="input-group">
+                            <span>
+                                <button class="btn text-roxo" ng-click="addQtd(produto)" type="button"><i class="fas fa-chevron-down"></i></button>
+                            </span>
+                            <input type="text" class="form-control" ng-model="produto.qtd_car">
+                            <span>
+                                <button class="btn text-roxo" ng-click="removeQtd(produto)" type="button"><i class="fas fa-chevron-up"></i></button>
+                            </span>
+                        </div>
                     </td>
-                    <td class="text-center col-xs-2"></td>
-                    <td class="text-center">R$ 1.500,99</td>
-                    <td class="text-center">R$ 1.500,99</td>
+                    <td class="text-center col-xs-2">
+                        <p>Entrega para o<br />CEP: {{carrinho.cep}}</p>
+                        <strong class="text-roxo">{{produto.prazo}}</strong>
+                    </td>
+                    <td class="text-center">R$ {{produto.preco}}</td>
+                    <td class="text-center">R$ {{produto.total}}</td>
                     <td class="text-center">
-                        <span>
-                            <button href="#" class="btn text-roxo" type="button"><i class="fas fa-times"></i></button>
-                        </span>
+                        <button ng-click="removeAll(produto)" class="btn text-roxo" type="button"><i class="fas fa-times"></i></button>
                     </td>
                 </tr>
             </tbody>
@@ -92,7 +95,15 @@
                 url: 'carrinho-dados'
             }).then(function(response) {
 
-                console.log(response);
+                $scope.carrinho = {
+                    cep: response.data.cep_car,
+                    subtotal: response.data.subtotal_car,
+                    frete: response.data.frete_car,
+                    total: response.data.total_car
+                };
+
+                $scope.produtos = response.data.produtos;
+                console.log(response.data)
 
             }, function(response) {
 
@@ -101,31 +112,6 @@
             });
 
         };
-
-        $scope.carrinho = {
-            cep: '01310-100',
-            subtotal: '1.110,00',
-            frete: '0,00',
-            total: '1.110,00'
-        };
-
-        $scope.produtos = [{
-            nome_prod_long: 'Smartphone Motorola Moto X Play Dual',
-            preco: '1.500,99',
-            total: '1.500,99',
-            qtd: 1,
-            foto_principal: 'iphone.jpg',
-            prazo: '11 dias úteis',
-            id_prod: 1
-        }, {
-            nome_prod_long: 'Smartphone Motorola Moto X Play Dual',
-            preco: '1.500,99',
-            total: '1.500,99',
-            qtd: 1,
-            foto_principal: 'iphone.jpg',
-            prazo: '10 dias úteis',
-            id_prod: 2
-        }];
 
         $scope.addQtd = function(_produto) {
 
@@ -152,6 +138,25 @@
 
 
         };
+
+        $scope.removeAll = function(_produto) {
+
+            $http({
+                method: 'DELETE',
+                url: 'carrinhoRemoveAll-'+_produto.id_prod
+            }).then(function(response) {
+
+                carregarCarrinho();
+
+            }, function() {
+
+
+
+            });
+
+        };
+
+        carregarCarrinho();
 
     });
 </script>

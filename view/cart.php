@@ -48,9 +48,9 @@
                 <div class="box-outline-grey">
                     <p style="margin:28px auto;">Simule o prazo de entrega e o frete para seu CEP abaixo:</p>
                     <div class="input-group col-xs-4">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" ng-model="cep">
                         <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">Calcular Frete</button>
+                            <button class="btn btn-default" ng-click="calcularFrete(cep)" type="button">Calcular Frete</button>
                         </span>
                     </div>
                 </div>
@@ -168,7 +168,22 @@
             });
 
         };
-        
+
+        $scope.calcularFrete = function(_cep){
+            $http({
+                method: 'GET',
+                url: 'calcular-frete-'+_cep
+            }).then(function(response) {
+
+                carregarCarrinho();
+
+            }, function() {
+
+
+
+            });
+        }
+
         carregarCarrinho();
 
     });
